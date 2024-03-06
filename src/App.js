@@ -103,73 +103,97 @@ function App() {
   const [serviceRole, setServiceRole] = useState(null);
   const [showIntro, setShowIntro] = useState(true); // State to control showing the introduction
 
-  const handleOptionClick = (option) => {
+ const handleOptionClick = (option) => {
   // Determine the index of the selected option
-    const selectedOptionIndex = option === questions[currentQuestion].options[0] ? 0 : 1;
-    
-    // Calculate new scores based on the selected option and current answers
-    const newScores = determineServiceRole(currentQuestion, selectedOptionIndex, answers);
-    
-    // Update the answers with the new scores
-    setAnswers(newScores);
-    
-    // If there are more questions, move to the next question; otherwise, determine the service role
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      // Find the service role with the highest score
-      let maxScore = -1;
-      let maxRole = null;
-      for (const role in newScores) {
-        if (newScores[role] > maxScore) {
-          maxScore = newScores[role];
-          maxRole = role;
-        }
+  const selectedOptionIndex = option === questions[currentQuestion].options[0] ? 0 : 1;
+
+  // Calculate new scores based on the selected option and current answers
+  const newScores = determineServiceRole(currentQuestion, selectedOptionIndex, answers);
+
+  // Update the answers with the new scores
+  setAnswers(newScores);
+
+  // If there are more questions, move to the next question; otherwise, determine the service role
+  if (currentQuestion < questions.length - 1) {
+    setCurrentQuestion(currentQuestion + 1);
+  } else {
+    // Find the service role with the highest score
+    let maxScore = -1;
+    let maxRole = null;
+    for (const role in newScores) {
+      if (newScores[role] > maxScore) {
+        maxScore = newScores[role];
+        maxRole = role;
       }
-      console.log(newScores);
-      
-      // Set the service role based on the role with the highest score
-      setServiceRole(serviceRoles[maxRole]);
     }
-  };
+    console.log(newScores);
 
+    // Set the service role based on the role with the highest score
+    setServiceRole(serviceRoles[maxRole]);
+  }
+};
 
-  const determineServiceRole = (questionIndex, answerIndex, currentScores) => {
+const determineServiceRole = (questionIndex, answerIndex, currentScores) => {
   const newScores = { ...currentScores }; // Make a copy of the current scores
 
   switch (questionIndex) {
     case 0:
-      // When faced with a challenge in church service
+    case 2:
+    case 4:
+      // When faced with a challenge in church service, making decisions, and feeling fulfilled during church service
       newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
       newScores.D += answerIndex === 1 ? 2 : 1; // Koinonia Team +2 if answer index 1, +1 if index 0
       break;
     case 1:
-      // In social gatherings at church
+    case 6:
+    case 10:
+    case 14:
+      // In social gatherings at church, facing disagreements, interactions with fellow church members
       newScores.C += answerIndex === 0 ? 2 : 1; // Welcoming Team +2 if answer index 0, +1 if index 1
       newScores.D += answerIndex === 1 ? 2 : 1; // Koinonia Team +2 if answer index 1, +1 if index 0
       break;
-    case 2:
-      // When making decisions for church activities
-      newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
-      newScores.D += answerIndex === 1 ? 2 : 1; // Koinonia Team +2 if answer index 1, +1 if index 0
-      break;
     case 3:
-      // In a church project
+    case 12:
+    case 15:
+    case 16:
+    case 17:
+      // In a church project, during meetings/discussions, engaging with children, in group activities with children, and valuing patience
       newScores.B += answerIndex === 0 ? 2 : 1; // ZERA Teacher +2 if answer index 0, +1 if index 1
       newScores.D += answerIndex === 1 ? 2 : 1; // Koinonia Team +2 if answer index 1, +1 if index 0
       break;
-    case 4:
-      // I feel most fulfilled during church service when
+    case 5:
+    case 9:
+      // During church events and church services
+      newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
+      newScores.C += answerIndex === 1 ? 2 : 1; // Welcoming Team +2 if answer index 1, +1 if index 0
+      break;
+    case 7:
+      // In my approach to spiritual growth
+      newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
+      newScores.E += answerIndex === 1 ? 2 : 1; // Praise and Worship Team +2 if answer index 1, +1 if index 0
+      break;
+    case 8:
+      // When volunteering for church activities
+      newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
+      newScores.B += answerIndex === 1 ? 2 : 1; // ZERA Teacher +2 if answer index 1, +1 if index 0
+      break;
+    case 11:
+      // When serving in church ministry
       newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
       newScores.D += answerIndex === 1 ? 2 : 1; // Koinonia Team +2 if answer index 1, +1 if index 0
       break;
-    // Add more cases for the remaining questions
+    case 13:
+      // In my personal devotional time
+      newScores.A += answerIndex === 0 ? 2 : 1; // Media Team +2 if answer index 0, +1 if index 1
+      newScores.E += answerIndex === 1 ? 2 : 1; // Praise and Worship Team +2 if answer index 1, +1 if index 0
+      break;
     default:
       break;
   }
 
   return newScores;
 };
+
 
   
   
