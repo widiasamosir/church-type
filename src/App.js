@@ -126,105 +126,107 @@ function App() {
   };
 
   const determineServiceRole = (questionIndex, answerIndex, currentScores) => {
-    const newScores = { ...currentScores }; // Make a copy of the current scores
-  
-    switch (questionIndex) {
-      case 0:
-        // When faced with a challenge in church service
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 1:
-        // In social gatherings at church
-        newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 2:
-        // When making decisions for church activities
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 3:
-        // In a church project
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 4:
-        // I feel most fulfilled during church service when
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      // Add more cases for the remaining questions
-      case 5:
-        // During church events
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.C += answerIndex === 1 ? 1 : 0; // Welcoming Team +1 if answer index 1
-        break;
-      case 6:
-        // When faced with a disagreement within the church community
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 7:
-        // In my approach to spiritual growth
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 8:
-        // When volunteering for church activities
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.B += answerIndex === 1 ? 1 : 0; // ZERA Teacher +1 if answer index 1
-        break;
-      case 9:
-        // During church services
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.E += answerIndex === 1 ? 1 : 0; // Praise and Worship Team +1 if answer index 1
-        break;
-      case 10:
-        // In my interactions with fellow church members
-        newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 11:
-        // When serving in church ministry
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 12:
-        // During church meetings or discussions
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 13:
-        // In my personal devotional time
-        newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
-        newScores.E += answerIndex === 1 ? 1 : 0; // Praise and Worship Team +1 if answer index 1
-        break;
-      case 14:
-        // When volunteering for church outreach programs
-        newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 15:
-        // When engaging with children at church
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 16:
-        // In group activities with children
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
-        break;
-      case 17:
-        // As a ZERA Teacher (Sunday school teacher)
-        newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
-        break;
-      default:
-        break;
-    }
-  
-    return newScores;
-  };
+  const newScores = { ...currentScores }; // Make a copy of the current scores
+
+  switch (questionIndex) {
+    case 0:
+      // When faced with a challenge in church service
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 1:
+      // In social gatherings at church
+      newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 2:
+      // When making decisions for church activities
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 3:
+      // In a church project
+      newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 4:
+      // I feel most fulfilled during church service when
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    // Add more cases for the remaining questions
+    case 5:
+      // During church events
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.C += answerIndex === 1 ? 1 : 0; // Welcoming Team +1 if answer index 1
+      break;
+    case 6:
+      // When faced with a disagreement within the church community
+      newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 7:
+      // In my approach to spiritual growth
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 8:
+      // When volunteering for church activities
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.B += answerIndex === 1 ? 1 : 0; // ZERA Teacher +1 if answer index 1
+      break;
+    case 9:
+      // During church services
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.E += answerIndex === 1 ? 1 : 0; // Praise and Worship Team +1 if answer index 1
+      break;
+    case 10:
+      // In my interactions with fellow church members
+      newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 11:
+      // When serving in church ministry
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 12:
+      // During church meetings or discussions
+      newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 13:
+      // In my personal devotional time
+      newScores.A += answerIndex === 0 ? 1 : 0; // Media Team +1 if answer index 0
+      newScores.E += answerIndex === 1 ? 1 : 0; // Praise and Worship Team +1 if answer index 1
+      break;
+    case 14:
+      // When volunteering for church outreach programs
+      newScores.C += answerIndex === 0 ? 1 : 0; // Welcoming Team +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 15:
+      // When engaging with children at church
+      newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 16:
+      // In group activities with children
+      newScores.B += answerIndex === 0 ? 1 : 0; // ZERA Teacher +1 if answer index 0
+      newScores.D += answerIndex === 1 ? 1 : 0; // Koinonia Team +1 if answer index 1
+      break;
+    case 17:
+      // As a ZERA Teacher (Sunday school teacher)
+      newScores.B += 1; // ZERA Teacher +1
+      newScores.D += 1; // Koinonia Team +1
+      break;
+    default:
+      break;
+  }
+
+  return newScores;
+};
+
   
   
 
