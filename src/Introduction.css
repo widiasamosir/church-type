@@ -1,0 +1,40 @@
+.introduction {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .introduction img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .introduction p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+ 
+
+  .footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    /* background-color: #f8f9fa; */
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .introduction p {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .introduction p {
+      font-size: 14px;
+    }
+  }
+  
